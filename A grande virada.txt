@@ -1,0 +1,32 @@
+A grande virada
+
+Binarios a serem instalados no opt
+
+android-sdk
+containerd
+dotnet
+google
+node-js
+yt-dlp
+
+Arquivo bashrc. Parte dos exports
+
+export PATH=$PATH:/opt/node-js/bin
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+
+
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+export DOTNET_ROOT=/opt/dotnet
+export PATH=$PATH:/opt/dotnet
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+export PATH="$PATH:$HOME/.scripts"
+
+export PATH="/opt/yt-dlp:$PATH"
+
