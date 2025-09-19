@@ -1,0 +1,43 @@
+🌀 Fluxo típico numa requisição CRUD:
+
+Controller
+Recebe a requisição HTTP (ex: POST /users) e extrai os dados (normalmente via @Body()).
+
+DTO (Data Transfer Object)
+O controller valida e transforma os dados de entrada usando o DTO.
+Se os dados não forem válidos, o Nest já bloqueia a requisição (erro 400).
+
+Service
+O controller chama o service e passa o DTO validado.
+O service executa a lógica de negócio: criar, atualizar, buscar, deletar.
+
+Banco de dados
+O service usa o ORM (ex: Prisma) para salvar ou consultar dados no banco.
+
+Resposta
+O service retorna os dados para o controller, que envia a resposta ao cliente.
+
+
+##EXEMPLO SIMPLIFICADO
+// Controller
+@Post()
+create(@Body() createUserDto: CreateUserDto) {
+  return this.userService.create(createUserDto);
+}
+
+// DTO
+export class CreateUserDto {
+  @IsString()
+  name: string;
+
+  @IsEmail()
+  email: string;
+}
+
+// Service
+async create(dto: CreateUserDto) {
+  return this.prisma.user.create({ data: dto });
+}
+
+## Perguntar isso aqui pro chat dps
+Quer que eu te mostre como montar esse CRUD completo, com Prisma e banco, usando essa estrutura?
